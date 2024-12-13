@@ -1,4 +1,4 @@
-package org.example;
+package org.Jgit;
 
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.HashMap;

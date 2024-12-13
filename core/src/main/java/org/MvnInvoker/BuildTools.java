@@ -1,4 +1,4 @@
-package org.example;
+package org.MvnInvoker;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
