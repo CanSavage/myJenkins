@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>工作流详情</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+  <h1 class="mt-4">工作流详情</h1>
+
+  <h3>工作流名称: <span th:text="${workflow.name}"></span></h3>
+  <h4>状态: <span th:text="${workflow.status}"></span></h4>
+
+  <h2>任务列表</h2>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>任务名称</th>
+      <th>执行者</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task : ${tasks}">
+      <td th:text="${task.name}"></td>
+      <td th:text="${task.executor}"></td>
+      <td th:text="${task.status}"></td>
+      <td>
+        <form th:action="@{/workflows/tasks/{id}(id=${task.id})}" method="post">
+          <input type="hidden" name="status" value="已完成">
+          <button class="btn btn-success btn-sm" type="submit" th:disabled="${task.status == '已完成'}">完成任务</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <a href="/" class="btn btn-secondary">返回</a>
+</div>
+</body>
+</html>

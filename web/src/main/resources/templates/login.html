@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 新 Bootstrap5 核心 CSS JS 文件 -->
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.css}" type="text/css">
+    <script th:src="@{/static/js/bootstrap.bundle.js}"></script>
+    <title>login-page</title>
+    <style>
+        body {
+            background-image: url('static/images/login_back.webp'); /* 背景图片 */
+            background-size: cover;
+            /*background-position: center;*/
+            background-repeat: no-repeat;
+        }
+
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 阴影效果 */
+            padding: 30px;
+            margin: auto;
+            max-width: 35%;
+            margin-top: 15%;
+        }
+
+        .login-form input[type=text], .login-form input[type=password] {
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            background-color: #f2f2f2;
+            margin-bottom: 10px;
+        }
+
+        .login-form input[type=submit] {
+            border-radius: 20px;
+            padding: 7px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            width: 40%; /* 统一宽度 */
+        }
+        .btn-home {
+            border-radius: 20px;
+            padding: 7px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            width: 40%; /* 统一宽度 */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="login-form">
+                <h2 class="text-center mb-4">Login Form</h2>
+                <div th:if="${param.failure}">Invalid username and password</div>
+                <form action="#" th:action="@{/login}" method="post">
+                    <div class="form-group">
+                        <input id="name" type="text" class="form-control" placeholder="Username" required="required" name="user">
+                    </div>
+                    <div class="form-group">
+                        <input id="password" type="password" class="form-control" placeholder="Password" required="required" name="pswd">
+                    </div>
+                    <div class="form-group d-flex justify-content-between align-items-center">
+                        <input id="submitButton" type="submit" class="btn btn-block" value="Log in">
+                        <a href="/main" class="btn-home">Return Home</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
